@@ -36,7 +36,7 @@ app.get('/', (req, res) => {
 app.use(express.json()); // Middleware để parse JSON body
 app.use(cookieParser());
 app.use(cors({
-  origin: 'http://localhost:3000', // ⚠️ Đổi theo domain FE 
+  origin: 'https://fe-crud-post.vercel.app', // ⚠️ Đổi theo domain FE 
   credentials: true               // ✅ Cho phép gửi cookie từ frontend
 }));
 
