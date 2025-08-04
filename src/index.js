@@ -35,10 +35,24 @@ app.get('/', (req, res) => {
 // Swagger UI
 app.use(express.json()); // Middleware để parse JSON body
 app.use(cookieParser());
+
+// Dùng origin động hoặc whitelist domain thật
+const allowedOrigins = [
+  'http://localhost:3000',
+  'https://fe-crud-post.vercel.app'
+];
+
 app.use(cors({
-  origin: 'https://fe-crud-post.vercel.app', // ⚠️ Đổi theo domain FE 
-  credentials: true               // ✅ Cho phép gửi cookie từ frontend
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true // quan trọng nếu bạn dùng cookie / session / JWT qua cookie
 }));
+
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use('/api', getAllPostAPI)
