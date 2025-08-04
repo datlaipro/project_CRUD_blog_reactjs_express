@@ -21,7 +21,7 @@ const getPostIDAPI = require('./route/getPostID'); // Import the get post by ID 
 const fixPostAPI = require('./route/fixPost'); // Import the fix post route
 const deletePostAPI = require('./route/deletePostAPI'); // Import the delete post route
 const logOutAPI = require('./route/logOutAPI'); // Import the logout route
-mongoose.connect('mongodb://localhost:27017/POST_MANAGEMENT')
+mongoose.connect('mongodb+srv://datnuocep:1BSp8ZgixiPL30k7@cluster0.mwdaued.mongodb.net/POST_MANAGEMENT')
   .then(() => console.log('✅ MongoDB connected'))
   .catch(console.error);
 
