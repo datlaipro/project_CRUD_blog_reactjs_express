@@ -21,9 +21,13 @@ const getPostIDAPI = require('./route/getPostID'); // Import the get post by ID 
 const fixPostAPI = require('./route/fixPost'); // Import the fix post route
 const deletePostAPI = require('./route/deletePostAPI'); // Import the delete post route
 const logOutAPI = require('./route/logOutAPI'); // Import the logout route
-mongoose.connect('mongodb+srv://datnuocep:1BSp8ZgixiPL30k7@cluster0.mwdaued.mongodb.net/POST_MANAGEMENT')
-  .then(() => console.log('✅ MongoDB connected'))
-  .catch(console.error);
+mongoose.connect('mongodb+srv://datnuocep:1BSp8ZgixiPL30k7@cluster0.mwdaued.mongodb.net/POST_MANAGEMENT?retryWrites=true&w=majority&appName=Cluster0')
+  .then(() => console.log('✅ MongoDB Atlas connected'))
+  .catch((err) => console.error('❌ MongoDB connection error:', err));
+
+// mongoose.connect('mongodb://localhost:27017/POST_MANAGEMENT')
+//   .then(() => console.log('✅ MongoDB connected'))
+//   .catch(err => console.error('❌ MongoDB connection error:', err));
 
 app.get('/', (req, res) => {
   res.send('Xin chào từ Express!');
