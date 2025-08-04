@@ -39,7 +39,8 @@ app.use(cookieParser());
 // Dùng origin động hoặc whitelist domain thật
 const allowedOrigins = [
   'http://localhost:3000',
-  'https://fe-crud-post.vercel.app'
+  'https://fe-crud-post.vercel.app',
+  'https://fe-crud-post-qzvirrnhe-babysharks-projects-667a5459.vercel.app'
 ];
 
 app.use(cors({
