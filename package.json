@@ -1,0 +1,34 @@
+{
+  "name": "quan_ly_bai_viet",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@aws-crypto/sha256-browser": "^5.2.0",
+    "@aws-sdk/client-s3": "^3.859.0",
+    "@aws-sdk/signature-v4": "^3.370.0",
+    "bcrypt": "^6.0.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.17.0",
+    "multer": "^2.0.2",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.1",
+    "nodemon": "^3.1.10",
+    "tailwindcss": "^4.1.11",
+    "wrangler": "^4.27.0"
+  }
+}
