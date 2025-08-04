@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
-const SECRET_KEY = process.env.JWT_SECRET||"conbokhongcuoixYz1!";
+const SECRET_KEY = process.env.JWT_SECRET || "conbokhongcuoixYz1!";
 
 async function loginUser(req, res) {
   const { username, password } = req.body;
@@ -30,12 +30,12 @@ async function loginUser(req, res) {
     // ✅ Gửi token trong cookie
     res.cookie('token', token, {
       httpOnly: true,
-      secure: false,        // 👉 Bật `true` nếu dùng HTTPS
-      sameSite: 'lax',      // hoặc 'strict' nếu cần bảo mật cao hơn
-      maxAge: 36000000,      // 1h
+      secure: true,         // ✅ PHẢI BẬT nếu frontend là https (Vercel luôn là https)
+      sameSite: 'None',     // ✅ BẮT BUỘC khi khác domain
+      maxAge: 3600000,      // 1 giờ
     });
 
-    res.json({ message: 'Đăng nhập thành công',username });
+    res.json({ message: 'Đăng nhập thành công', username });
   } catch (error) {
     res.status(500).json({ error: 'Lỗi server khi đăng nhập' });
   }
